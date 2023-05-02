@@ -172,7 +172,7 @@ ui <- dashboardPage(
     
     # Button to go back to CMAC Website
     tags$a(actionButton("externalLinkBtn", "  Go back to Enterprise Reporting", icon = icon("arrow-left")), 
-           href = NULL, target = "_blank"),
+           href = 'http://adavena01.int.chickasaw.net:3838/temp-cash/docs/reporting/'),
     br(),
     h4(inputsHeaderTitle, style = "padding-left:20px"),
     
