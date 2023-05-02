@@ -1,20 +1,20 @@
 # CRAN Libraries
-if(!require(shiny)){         install.packages("shiny");          library(shiny) }
-if(!require(shinyWidgets)){  install.packages("shinyWidgets");   library(shinyWidgets) }
-if(!require(shinydashboard)){install.packages("shinydashboard"); library(shinydashboard) }
-if(!require(shinyjs)){       install.packages("shinyjs");        library(shinyjs) }
-if(!require(magrittr)){      install.packages("magrittr");       library(magrittr) }
-if(!require(dplyr)){         install.packages("dplyr");          library(dplyr) }
-if(!require(ggplot2)){       install.packages("ggplot2");        library(ggplot2) }
-if(!require(tidyr)){         install.packages("tidyr");          library(tidyr) }
-if(!require(scales)){        install.packages("scales");         library(scales) }
-if(!require(gridExtra)){     install.packages("gridExtra");      library(gridExtra) }
-if(!require(DT)){            install.packages("DT");             library(DT) }
-if(!require(fresh)){         install.packages('fresh', repos = "http://cran.us.r-project.org"); library(fresh) }
-if(!require(devtools)){      install.packages("devtools");       library(devtools) }
+if (!require(shiny)) {         install.packages("shiny");          library(shiny) }
+if (!require(shinyWidgets)) {  install.packages("shinyWidgets");   library(shinyWidgets) }
+if (!require(shinydashboard)) {install.packages("shinydashboard"); library(shinydashboard) }
+if (!require(shinyjs)) {       install.packages("shinyjs");        library(shinyjs) }
+if (!require(magrittr)) {      install.packages("magrittr");       library(magrittr) }
+if (!require(dplyr)) {         install.packages("dplyr");          library(dplyr) }
+if (!require(ggplot2)) {       install.packages("ggplot2");        library(ggplot2) }
+if (!require(tidyr)) {         install.packages("tidyr");          library(tidyr) }
+if (!require(scales)) {        install.packages("scales");         library(scales) }
+if (!require(gridExtra)) {     install.packages("gridExtra");      library(gridExtra) }
+if (!require(DT)) {            install.packages("DT");             library(DT) }
+if (!require(fresh)) {         install.packages('fresh', repos = "http://cran.us.r-project.org"); library(fresh) }
+if (!require(devtools)) {      install.packages("devtools");       library(devtools) }
 
 # Non-CRAN Libraries
-if(!require(styles)){        install_github("https://github.com/Daniel-Carpenter/styles.git"); library(styles) }
+if (!require(styles)) {        install_github("https://github.com/Daniel-Carpenter/styles.git"); library(styles) }
 
 
 
@@ -166,10 +166,18 @@ ui <- dashboardPage(
   
   ## Sidebar Inputs ------------------------------------------------------------
   dashboardSidebar(
+    
+    # Titles and non-input buttons
     width = 350,
+    
+    # Button to go back to CMAC Website
+    tags$a(actionButton("externalLinkBtn", "  Go back to Enterprise Reporting", icon = icon("arrow-left")), 
+           href = NULL, target = "_blank"),
     br(),
     h4(inputsHeaderTitle, style = "padding-left:20px"),
     
+    
+    # Inputs for dashboard
     sidebarMenu(
       
       # Styles
@@ -182,6 +190,7 @@ ui <- dashboardPage(
           )
         )
       ),
+      
       
       setSliderColor(rep(color_blueMain, 2), sliderId = 1:2),
       
@@ -213,6 +222,10 @@ ui <- dashboardPage(
       
       # Reset button
       actionButton("resetBtn", "Reset Inputs", icon = icon("undo"))
+      
+      # # Print button with print icon and text
+      # tags$button("Print Page", id = "printBtn", class = "btn btn-primary", 
+      #             icon("print"), onclick = "window.print();")
     )
   ),
   
