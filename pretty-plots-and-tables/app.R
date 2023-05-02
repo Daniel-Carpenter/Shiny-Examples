@@ -1,14 +1,22 @@
-# Libraries
-library(shiny)
-library(shinyWidgets)
-library(shinydashboard)
-library(shinyjs)
-library(tidyverse)
-library(scales)
-library(fresh)
-library(gridExtra)
-library(DT)
-library(styles) 
+# CRAN Libraries
+if(!require(shiny)){         install.packages("shiny");          library(shiny) }
+if(!require(shinyWidgets)){  install.packages("shinyWidgets");   library(shinyWidgets) }
+if(!require(shinydashboard)){install.packages("shinydashboard"); library(shinydashboard) }
+if(!require(shinyjs)){       install.packages("shinyjs");        library(shinyjs) }
+if(!require(magrittr)){      install.packages("magrittr");       library(magrittr) }
+if(!require(dplyr)){         install.packages("dplyr");          library(dplyr) }
+if(!require(ggplot2)){       install.packages("ggplot2");        library(ggplot2) }
+if(!require(tidyr)){         install.packages("tidyr");          library(tidyr) }
+if(!require(scales)){        install.packages("scales");         library(scales) }
+if(!require(gridExtra)){     install.packages("gridExtra");      library(gridExtra) }
+if(!require(DT)){            install.packages("DT");             library(DT) }
+if(!require(fresh)){         install.packages('fresh', repos = "http://cran.us.r-project.org"); library(fresh) }
+if(!require(devtools)){      install.packages("devtools");       library(devtools) }
+
+# Non-CRAN Libraries
+if(!require(styles)){        install_github("https://github.com/Daniel-Carpenter/styles.git"); library(styles) }
+
+
 
 options(encoding = 'UTF-8')
 
