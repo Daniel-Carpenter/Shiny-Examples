@@ -14,7 +14,7 @@ if (!require(fresh)) {         install.packages('fresh', repos = "http://cran.us
 if (!require(devtools)) {      install.packages("devtools");       library(devtools) }
 
 # Non-CRAN Libraries
-if (!require(styles)) {        install_github("https://github.com/Daniel-Carpenter/styles.git"); library(styles) }
+if (!require(styles.cmac)) {   install_github("CN-OIMSF/styles.cmac"); library(styles.cmac) }
 
 
 
@@ -286,7 +286,7 @@ server <- function(input, output, session) {
                 size  = 0.75) +
       
       # Line colors
-      styles::scale_color_dbc() + 
+      styles.cmac::scale_color_cmac() + 
       
       # Labels
       labs(title    = "Forecast vs. Realized Performance",
@@ -295,7 +295,7 @@ server <- function(input, output, session) {
            y        = "Performance Value") +
       
       # Theme
-      styles::theme_dbc() + themeIncreaseTextSize
+      styles.cmac::theme_cmac() + themeIncreaseTextSize
   })
   
   
@@ -316,8 +316,8 @@ server <- function(input, output, session) {
       geom_boxplot() +
       
       # COlors
-      styles::scale_fill_dbc() + 
-      styles::scale_color_dbc() + 
+      styles.cmac::scale_fill_cmac() + 
+      styles.cmac::scale_color_cmac() + 
       
       facet_grid(~Market) + 
       
@@ -327,7 +327,7 @@ server <- function(input, output, session) {
            y = "Value") +
       
       # Theme
-      styles::theme_dbc() + themeIncreaseTextSize
+      styles.cmac::theme_cmac() + themeIncreaseTextSize
       
   })
   
